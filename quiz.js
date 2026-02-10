@@ -126,17 +126,28 @@ function resetQuiz() {
     answers = [];
     document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
     document.getElementById('quizResult').style.display = 'none';
-    document.getElementById('quizStart').style.display = 'block';
+    document.getElementById('quizResult').classList.remove('reveal');
+    const startScreen = document.getElementById('quizStart');
+    if (startScreen) {
+        startScreen.style.display = 'block';
+    }
     document.getElementById('progressBar').style.width = '0%';
 }
 
 // Render result UI from a data object.
 function renderResult(data) {
     document.getElementById('quizForm').style.display = 'none';
-    document.getElementById('quizStart').style.display = 'none';
+    const startScreen = document.getElementById('quizStart');
+    if (startScreen) {
+        startScreen.style.display = 'none';
+    }
 
     const resultDiv = document.getElementById('quizResult');
+    resultDiv.classList.remove('reveal');
     resultDiv.style.display = 'block';
+    // Force reflow so the animation can replay on repeated results.
+    void resultDiv.offsetWidth;
+    resultDiv.classList.add('reveal');
     resultDiv.querySelector('.result-icon').innerHTML = `<i class="fas ${data.icon}" style="color: ${data.color}"></i>`;
     document.getElementById('resultScore').textContent = `${data.percentage}%`;
     document.getElementById('resultCategory').textContent = data.category;
