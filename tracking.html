@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CalmSpace - Tracking progress dan hasil">
+    <title>Tracking Progress - CalmSpace</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-brain"></i> CalmSpace
+            </a>
+            <div class="ms-auto">
+                <a href="index.html" class="btn btn-login">
+                    <i class="fas fa-home"></i> Beranda
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="quiz-section">
+        <div class="container">
+            <div class="quiz-wrapper">
+                <div class="section-header">
+                    <h2>Tracking Progress</h2>
+                    <p>Lihat ringkasan hasil terakhir dan catatan perkembangan Anda</p>
+                </div>
+
+                <div class="quiz-result" id="trackingResult" style="display: none;">
+                    <div class="result-icon" id="trackingIcon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Hasil Terakhir</h3>
+                    <div class="result-score" id="trackingScore">0%</div>
+                    <div class="result-category" id="trackingCategory"></div>
+                    <div class="result-message" id="trackingMessage"></div>
+                    <div class="result-note" id="trackingNote"></div>
+                </div>
+
+                <div class="text-center" id="trackingEmpty">
+                    <p>Belum ada hasil tersimpan.</p>
+                    <a href="quiz.html" class="btn btn-primary-custom">
+                        <i class="fas fa-clipboard-check"></i> Mulai Question
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const key = 'CalmSpace_last_result';
+        const raw = localStorage.getItem(key);
+        if (raw) {
+            const data = JSON.parse(raw);
+            document.getElementById('trackingResult').style.display = 'block';
+            document.getElementById('trackingEmpty').style.display = 'none';
+            document.getElementById('trackingScore').textContent = `${data.percentage}%`;
+            document.getElementById('trackingCategory').textContent = data.category;
+            document.getElementById('trackingCategory').style.color = data.color;
+            document.getElementById('trackingMessage').textContent = data.message;
+            document.getElementById('trackingNote').textContent = `Terakhir diperbarui: ${new Date(data.createdAt).toLocaleString('id-ID')}`;
+            document.getElementById('trackingIcon').innerHTML = `<i class="fas ${data.icon}" style="color: ${data.color}"></i>`;
+        }
+    </script>
+</body>
+</html>

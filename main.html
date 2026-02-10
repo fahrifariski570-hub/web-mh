@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CalmSpace - Fitur utama untuk asesmen dan dukungan">
+    <meta name="keywords" content="kesehatan mental, mental health, psikologi, konseling">
+    <title>CalmSpace - Web Utama</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main page navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-brain"></i> CalmSpace
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#welcome">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                </ul>
+
+                <!-- Auth buttons -->
+                <div class="ms-3 auth-buttons">
+                    <div class="auth-hidden">
+                        <a href="login.html" class="btn btn-login">
+                            <i class="fas fa-sign-in-alt"></i> Masuk
+                        </a>
+                    </div>
+
+                    <div class="auth-required" style="display: none;">
+                        <div class="user-menu-container">
+                            <button class="btn btn-user" onclick="toggleUserMenu()">
+                                <div class="user-avatar">
+                                    <span class="user-initial">U</span>
+                                </div>
+                                <span class="user-name">User</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+
+                            <div class="user-dropdown" id="userDropdown">
+                                <div class="dropdown-item">
+                                    <i class="fas fa-user"></i>
+                                    <span class="user-email">user@email.com</span>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#history" class="dropdown-item" onclick="showHistory()">
+                                    <i class="fas fa-history"></i> Riwayat Quiz
+                                </a>
+                                <a href="#" class="dropdown-item text-danger" onclick="handleLogout()">
+                                    <i class="fas fa-sign-out-alt"></i> Keluar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main intro section -->
+    <section class="intro" id="welcome">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="intro-content">
+                        <h1 class="intro-title">
+                            Fitur CalmSpace<br>
+                            <span class="gradient-text">Lebih Terarah dan Aman</span>
+                        </h1>
+                        <p class="intro-subtitle">
+                            Jelajahi fitur utama yang membantu Anda mengenali kondisi mental, mencari dukungan, dan memantau progres.
+                        </p>
+                        <div class="intro-buttons">
+                            <a href="#features" class="btn btn-primary-custom">
+                                <i class="fas fa-layer-group"></i> Lihat Fitur
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="intro-illustration">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-heart"></i>
+                            <span>Rasa Aman</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-user-md"></i>
+                            <span>Dukungan Ahli</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Progres Terukur</span>
+                        </div>
+                        <div class="intro-main-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Fitur Utama</h2>
+                <p>Semua yang Anda butuhkan untuk perjalanan kesehatan mental</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card" data-feature="asesmen">
+                        <div class="feature-icon icon-blue">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Question Mental</h3>
+                        <p>Mulai dari kuis singkat untuk memahami kondisi dan kebutuhan Anda.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card" data-feature="konsultasi">
+                        <div class="feature-icon icon-purple">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Konsultasi Ahli</h3>
+                        <p>Dapatkan arahan dari profesional untuk langkah yang lebih tepat.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card" data-feature="tracking">
+                        <div class="feature-icon icon-pink">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Tracking Progress</h3>
+                        <p>Lihat hasil terakhir dan pantau perubahan Anda dari waktu ke waktu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History modal -->
+    <div class="modal fade" id="historyModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-history"></i> Riwayat Quiz Anda
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="historyContent">
+                        <div class="text-center py-5">
+                            <div class="spinner-border text-primary" role="status"></div>
+                            <p class="mt-3">Memuat data...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-brain"></i> CalmSpace</h5>
+                    <p>Platform kesehatan mental untuk kesejahteraan Anda.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-2">
+                        <a href="#privacy">Kebijakan Privasi</a> |
+                        <a href="#terms">Syarat & Ketentuan</a>
+                    </p>
+                    <p class="hotline">
+                        <i class="fas fa-phone"></i> Hotline Darurat: <strong>119 ext 8</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-3 pt-3 border-top">
+                <p class="mb-0">&copy; 2026 CalmSpace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
