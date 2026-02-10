@@ -1,0 +1,79 @@
+/* Consultation page layout */
+.features {
+    padding: 80px 0;
+    background:
+        radial-gradient(900px circle at 85% 0%, rgba(79, 124, 255, 0.26), transparent 58%),
+        radial-gradient(800px circle at 10% 90%, rgba(255, 122, 217, 0.18), transparent 60%),
+        linear-gradient(180deg, #FFFFFF 0%, #F4EDFF 100%);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+}
+
+.consultation-hero {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    border: 1px solid rgba(79, 124, 255, 0.2);
+    box-shadow: var(--shadow-md);
+}
+
+.consultation-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.consultation-points {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.consultation-points li {
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.consultation-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.consultation-highlight,
+.consultation-note {
+    background: rgba(79, 124, 255, 0.08);
+    border: 1px solid rgba(79, 124, 255, 0.18);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.consultation-steps {
+    margin: 0.75rem 0 0;
+    padding-left: 1.25rem;
+}
+
+@media (max-width: 900px) {
+    .consultation-hero {
+        grid-template-columns: 1fr;
+    }
+}
